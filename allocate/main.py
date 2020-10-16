@@ -172,6 +172,7 @@ class NFVOPlugin(AllocateNSSIabc):
                 vnfd_id = vnfd['id']
                 #print vnfd_id
             pass
+        print('vnfd id: {}'.format(vnfd_id))
         return vnfd_id
 
     def upload_ns_descriptor(self, ns_descriptor_path):
