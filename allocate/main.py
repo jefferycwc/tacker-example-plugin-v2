@@ -93,7 +93,7 @@ class NFVOPlugin(AllocateNSSIabc):
     def upload_vnf_package(self, vnf_package_path):
         file_path_list = glob.glob(os.path.join(vnf_package_path, 'Definitions/*.yaml'))
         vnfd_file = file_path_list[0].replace(os.path.join(vnf_package_path, 'Definitions/'), '')
-        print("vnfd_file: {}".format(vnfd_file))
+        #print("vnfd_file: {}".format(vnfd_file))
         vnfd_name = vnfd_file.split('.yaml')[0]
         print('\nUpload VNFD: ' + vnfd_name)
         vnfd_description = 'VNFD:' + vnfd_name
@@ -118,6 +118,60 @@ class NFVOPlugin(AllocateNSSIabc):
         headers = {'X-Auth-Token': token}
         response = requests.post(upload_vnfd_url, data=json.dumps(vnfd_body), headers=headers)
         print('Upload VNFD status: ' + str(response.status_code))
+        self.create_vnf(vnfd_name)
+
+    def create_vnf(self,vnf_name)
+        post_create_vnf_url = self.TACKER_URL + "vnfs"
+        token = self.get_token()
+        headers = {'X-Auth-Token': token}
+        tenant_id = self.get_project_id(self.OS_PROJECT_NAME)
+        vnfd_id = self.get_vnfd_id(vnf_name)
+        vim_id = self.get_vim_id(self.OS_VIM_NAME)
+        vnf_body = {
+                'vnf': {
+                    'name': vnf_name,
+                    'description': vnf_description,
+                    'tenant_id': tenant_id,
+                    'vnfd_id': vnfd_id,
+                    'vim_id': vim_id,
+                }
+        }
+        res_create_vnf = requests.post(post_create_vnf_url, data=json.dumps(vnf_body), headers=headers)
+        print('Create VNF status: ' + str(res_create_vnf.status_code))
+        vnf_id = res_create_vnf.json()['vnf']['id']
+        create_vnf_status = res_create_vnf.json()['vnf']['status']
+        count =0
+        while create_vnf_status !='ACTIVE' and create_vnf_status != 'ERROR':
+            show_vnf_url = 'http://' + self.TACKER_IP + ':9890/v1.0/vnfs/' + vnf_id
+            res_show_vnf = requests.get(show_vnf_url, headers=headers).json()
+            create_vnf_status = res_show_vnf['vnf']['status']
+            time.sleep(1)
+            count = count+1
+            print('wait ' + str(count) + 's')
+        print('create ' + vnf_name + ' successfully!!')
+
+    def list_vnfd(self):
+        get_vnfd_list_url = 'http://' + self.TACKER_IP + ':9890/v1.0/vnfds'
+        token = self.get_token()
+        headers = {'X-Auth-Token': token}
+        get_vnfd_list_response = requests.get(get_vnfd_list_url, headers=headers)
+        print("Get Tacker vnfd list status: " + str(get_vnfd_list_response.status_code))
+        get_vnfd_list_result = get_vnfd_list_response.json()
+        #text = get_nsd_list_response.text
+        #print(get_nsd_list_result)
+        #print(text)
+        return get_vnfd_list_result    
+
+    def get_vnfd_id(self, vnfd_name):
+        vnfd_list = self.list_vnfd()
+        #print(vnfd_list)
+        vnfd_id = None
+        for vnfd in vnfd_list['vnfds']:
+            if vnfd['name'] == vnfd_name:
+                vnfd_id = vnfd['id']
+                print vnfd_id
+            pass
+        return vnfd_id
 
     def upload_ns_descriptor(self, ns_descriptor_path):
         file_path_list = glob.glob(os.path.join(ns_descriptor_path, 'Definitions/*.yaml'))
