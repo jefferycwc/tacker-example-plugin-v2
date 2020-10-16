@@ -121,7 +121,7 @@ class NFVOPlugin(AllocateNSSIabc):
         self.create_vnf(vnfd_name)
 
     def create_vnf(self,vnf_name):
-        post_create_vnf_url = self.TACKER_URL + "vnfs"
+        post_create_vnf_url = self.TACKER_URL + "/vnfs"
         token = self.get_token()
         headers = {'X-Auth-Token': token}
         tenant_id = self.get_project_id(self.OS_PROJECT_NAME)
