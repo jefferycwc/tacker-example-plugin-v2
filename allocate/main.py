@@ -234,7 +234,7 @@ class NFVOPlugin(AllocateNSSIabc):
             'monitoringParameter': monitoringParameter
         }
 
-    def list_vnf(self)
+    def list_vnf(self):
         token = self.get_token()
         headers = {'X-Auth-Token': token}
         list_vnf_url = self.TACKER_URL + 'vnfs'
