@@ -127,6 +127,7 @@ class NFVOPlugin(AllocateNSSIabc):
         tenant_id = self.get_project_id(self.OS_PROJECT_NAME)
         vnfd_id = self.get_vnfd_id(vnf_name)
         vim_id = self.get_vim_id(self.OS_VIM_NAME)
+        vnf_description = 'description'
         vnf_body = {
                 'vnf': {
                     'name': vnf_name,
