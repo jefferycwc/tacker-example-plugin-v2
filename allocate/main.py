@@ -93,6 +93,7 @@ class NFVOPlugin(AllocateNSSIabc):
     def upload_vnf_package(self, vnf_package_path):
         file_path_list = glob.glob(os.path.join(vnf_package_path, 'Definitions/*.yaml'))
         vnfd_file = file_path_list[0].replace(os.path.join(vnf_package_path, 'Definitions/'), '')
+        print("vnfd_file: {}".format(vnfd_file))
         vnfd_name = vnfd_file.split('.yaml')[0]
         print('\nUpload VNFD: ' + vnfd_name)
         vnfd_description = 'VNFD:' + vnfd_name
