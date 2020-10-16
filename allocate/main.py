@@ -60,7 +60,7 @@ class NFVOPlugin(AllocateNSSIabc):
             }
         }
         get_token_response = requests.post(get_token_url, data=json.dumps(get_token_body))
-        print("Get OpenStack token status: " + str(get_token_response.status_code))
+        #print("Get OpenStack token status: " + str(get_token_response.status_code))
         self.get_token_result = get_token_response.headers['X-Subject-Token']
         return self.get_token_result
 
@@ -151,7 +151,7 @@ class NFVOPlugin(AllocateNSSIabc):
         print('create ' + vnf_name + ' successfully!!')
 
     def list_vnfd(self):
-        get_vnfd_list_url = 'http://' + self.TACKER_IP + ':9890/v1.0/vnfds'
+        get_vnfd_list_url = self.TACKER_URL + "/vnfds"
         token = self.get_token()
         headers = {'X-Auth-Token': token}
         get_vnfd_list_response = requests.get(get_vnfd_list_url, headers=headers)
