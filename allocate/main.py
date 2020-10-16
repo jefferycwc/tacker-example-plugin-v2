@@ -120,7 +120,7 @@ class NFVOPlugin(AllocateNSSIabc):
         print('Upload VNFD status: ' + str(response.status_code))
         self.create_vnf(vnfd_name)
 
-    def create_vnf(self,vnf_name)
+    def create_vnf(self,vnf_name):
         post_create_vnf_url = self.TACKER_URL + "vnfs"
         token = self.get_token()
         headers = {'X-Auth-Token': token}
