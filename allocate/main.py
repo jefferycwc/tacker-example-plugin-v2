@@ -159,6 +159,7 @@ class NFVOPlugin(AllocateNSSIabc):
         vnf_id = dict()
         for vnf in res_list_vnf:
             vnf_id[vnf['name']]=vnf['id']
+        print('nrf id: {}'.format(vnf_id['nrf']))
         self.vnf_info = {
             'nrf':vnf_id['nrf'],
             'amf':vnf_id['amf'],
