@@ -163,7 +163,7 @@ class NFVOPlugin(AllocateNSSIabc):
             vnf_id[vnf['name']]=vnf['id']
         print('nrf id: {}'.format(vnf_id['nrfd']))
         self.vnf_info = {
-            'mongodb': vnf_id['mongodb']
+            'mongodb': vnf_id['mongodb'],
             'nrfd':vnf_id['nrfd'],
             'amfd':vnf_id['amfd'],
             'smfd':vnf_id['smfd'],
