@@ -150,6 +150,25 @@ class NFVOPlugin(AllocateNSSIabc):
             count = count+1
             print('wait ' + str(count) + 's')
         print('create ' + vnf_name + ' successfully!!')
+    
+    def set_vnf_info(self):
+        token = self.get_token()
+        headers = {'X-Auth-Token': token}
+        list_vnf_url = self.TACKER_URL + 'vnfs'
+        res_list_vnf = requests.get(list_vnf_url, headers=headers).json()['vnfs']
+        vnf_id = dict()
+        for vnf in res_list_vnf:
+            vnf_id[vnf['name']=vnf['id']
+        self.vnf_info = {
+            'nrf':vnf_id['nrf'],
+            'amf':vnf_id['amf'],
+            'smf':vnf_id['smf'],
+            'udr':vnf_id['udr'],
+            'pcf':vnf_id['pcf'],
+            'udm':vnf_id['udm'],
+            'nssf':vnf_id['nssf'],
+            'ausf':vnf_id['ausf']
+        }
 
     def list_vnfd(self):
         get_vnfd_list_url = self.TACKER_URL + "/vnfds"
