@@ -141,14 +141,14 @@ class NFVOPlugin(AllocateNSSIabc):
         print('Create VNF status: ' + str(res_create_vnf.status_code))
         vnf_id = res_create_vnf.json()['vnf']['id']
         create_vnf_status = res_create_vnf.json()['vnf']['status']
-        count =0
+        '''count =0
         while create_vnf_status !='ACTIVE' and create_vnf_status != 'ERROR':
             show_vnf_url = self.TACKER_URL + "/vnfs/" + vnf_id
             res_show_vnf = requests.get(show_vnf_url, headers=headers).json()
             create_vnf_status = res_show_vnf['vnf']['status']
             time.sleep(1)
             count = count+1
-            print('wait ' + str(count) + 's')
+            print('wait ' + str(count) + 's')'''
         print('create ' + vnf_name + ' successfully!!')
     
     def set_vnf_info(self):
