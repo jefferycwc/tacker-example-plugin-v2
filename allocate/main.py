@@ -163,14 +163,15 @@ class NFVOPlugin(AllocateNSSIabc):
             vnf_id[vnf['name']]=vnf['id']
         print('nrf id: {}'.format(vnf_id['nrfd']))
         self.vnf_info = {
-            'nrf':vnf_id['nrf'],
-            'amf':vnf_id['amf'],
-            'smf':vnf_id['smf'],
-            'udr':vnf_id['udr'],
-            'pcf':vnf_id['pcf'],
-            'udm':vnf_id['udm'],
-            'nssf':vnf_id['nssf'],
-            'ausf':vnf_id['ausf']
+            'mongodb': vnf_id['mongodb']
+            'nrfd':vnf_id['nrfd'],
+            'amfd':vnf_id['amfd'],
+            'smfd':vnf_id['smfd'],
+            'udrd':vnf_id['udrd'],
+            'pcfd':vnf_id['pcfd'],
+            'udmd':vnf_id['udmd'],
+            'nssfd':vnf_id['nssfd'],
+            'ausfd':vnf_id['ausfd']
         }
 
     def list_vnfd(self):
