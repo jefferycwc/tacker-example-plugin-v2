@@ -158,6 +158,7 @@ class NFVOPlugin(AllocateNSSIabc):
         res_list_vnf = requests.get(list_vnf_url, headers=headers).json()['vnfs']
         vnf_id = dict()
         for vnf in res_list_vnf:
+            print('name {name} : {id}'.formay(name=vnf['name'],id=vnf['id']))
             vnf_id[vnf['name']]=vnf['id']
         print('nrf id: {}'.format(vnf_id['nrf']))
         self.vnf_info = {
