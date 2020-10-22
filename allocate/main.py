@@ -152,9 +152,10 @@ class NFVOPlugin(AllocateNSSIabc):
         print('create ' + vnf_name + ' successfully!!')
     
     def set_vnf_info(self):
+        print('enter set_vnf_info')
         token = self.get_token()
         headers = {'X-Auth-Token': token}
-        list_vnf_url = self.TACKER_URL + 'vnfs'
+        list_vnf_url = self.TACKER_URL + '/vnfs'
         res_list_vnf = requests.get(list_vnf_url, headers=headers).json()['vnfs']
         vnf_id = dict()
         for vnf in res_list_vnf:
