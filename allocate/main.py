@@ -161,8 +161,8 @@ class NFVOPlugin(AllocateNSSIabc):
         for vnf in res_list_vnf:
             print('name {name} : {id}'.format(name=vnf['name'],id=vnf['id']))
             vnf_id[vnf['name']]=vnf['id']
-        print('nrf id: {}'.format(vnf_id['nrfd']))
-        self.vnfinfo = {
+        #print('nrf id: {}'.format(vnf_id['nrfd']))
+        self.nsinfo = {
             'mongodb': vnf_id['mongodb'],
             'nrfd':vnf_id['nrfd'],
             'amfd':vnf_id['amfd'],
