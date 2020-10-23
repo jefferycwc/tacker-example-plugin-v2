@@ -303,7 +303,7 @@ class NFVOPlugin(AllocateNSSIabc):
         vnffg_info = res_show_ns['ns']['vnffg_ids']
         ns_state = res_show_ns['ns']['status']
         monitoringParameter = res_show_ns['ns']['mgmt_urls']
-        print res_show_ns['ns']['vnf_ids'][0]
+        print(res_show_ns['ns']['vnf_ids'][0])
         self.random_uuid=str(uuid.uuid4())
         self.nsinfo = {
             'id': self.random_uuid,
