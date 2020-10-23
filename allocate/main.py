@@ -331,7 +331,7 @@ class NFVOPlugin(AllocateNSSIabc):
             'pcfd':self.random_uuid,
             'udmd':self.random_uuid,
             'nssfd':self.random_uuid,
-            'ausd':self.random_uuid
+            'ausfd':self.random_uuid
         }
 
     def list_vnf(self):
