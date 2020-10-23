@@ -305,6 +305,15 @@ class NFVOPlugin(AllocateNSSIabc):
         monitoringParameter = res_show_ns['ns']['mgmt_urls']
         print(res_show_ns['ns']['vnf_ids'][0])
         self.random_uuid=str(uuid.uuid4())
+        ''''mongodb':res_show_ns['ns']['vnf_ids']['VNF0'],
+        'nrfd':res_show_ns['ns']['vnf_ids']['VNF1'],
+        'amfd':res_show_ns['ns']['vnf_ids']['VNF2'],
+        'smfd':res_show_ns['ns']['vnf_ids']['VNF3'],
+        'udrd':res_show_ns['ns']['vnf_ids']['VNF4'],
+        'pcfd':res_show_ns['ns']['vnf_ids']['VNF5'],
+        'udmd':res_show_ns['ns']['vnf_ids']['VNF6'],
+        'nssfd':res_show_ns['ns']['vnf_ids']['VNF7'],
+        'ausd':res_show_ns['ns']['vnf_ids']['VNF8']'''
         self.nsinfo = {
             'id': self.random_uuid,
             'nsInstanceDescription': description,
@@ -313,15 +322,6 @@ class NFVOPlugin(AllocateNSSIabc):
             'vnffgInfo': vnffg_info,
             'nsState': ns_state,
             'monitoringParameter': monitoringParameter
-            ''''mongodb':res_show_ns['ns']['vnf_ids']['VNF0'],
-            'nrfd':res_show_ns['ns']['vnf_ids']['VNF1'],
-            'amfd':res_show_ns['ns']['vnf_ids']['VNF2'],
-            'smfd':res_show_ns['ns']['vnf_ids']['VNF3'],
-            'udrd':res_show_ns['ns']['vnf_ids']['VNF4'],
-            'pcfd':res_show_ns['ns']['vnf_ids']['VNF5'],
-            'udmd':res_show_ns['ns']['vnf_ids']['VNF6'],
-            'nssfd':res_show_ns['ns']['vnf_ids']['VNF7'],
-            'ausd':res_show_ns['ns']['vnf_ids']['VNF8'],'''
         }
 
     def list_vnf(self):
