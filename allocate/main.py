@@ -314,9 +314,8 @@ class NFVOPlugin(AllocateNSSIabc):
         'udmd':res_show_ns['ns']['vnf_ids']['VNF6'],
         'nssfd':res_show_ns['ns']['vnf_ids']['VNF7'],
         'ausd':res_show_ns['ns']['vnf_ids']['VNF8']'''
-        str_ = '123'
         self.nsinfo = {
-            'id': ns_instance_id,
+            'id': self.random_uuid,
             'nsInstanceDescription': description,
             'nsdInfoId': nsd_info_id,
             'vnfInstance': vnf_info,
