@@ -323,15 +323,15 @@ class NFVOPlugin(AllocateNSSIabc):
             'vnffgInfo': vnffg_info,
             'nsState': ns_state,
             'monitoringParameter': monitoringParameter,
-            'mongodb':str_,
-            'nrfd':str_,
-            'amfd':str_,
-            'smfd':str_,
-            'udrd':str_,
-            'pcfd':str_,
-            'udmd':str_,
-            'nssfd':str_,
-            'ausd':str_
+            'mongodb':self.random_uuid,
+            'nrfd':self.random_uuid,
+            'amfd':self.random_uuid,
+            'smfd':self.random_uuid,
+            'udrd':self.random_uuid,
+            'pcfd':self.random_uuid,
+            'udmd':self.random_uuid,
+            'nssfd':self.random_uuid,
+            'ausd':self.random_uuid
         }
 
     def list_vnf(self):
