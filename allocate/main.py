@@ -179,7 +179,7 @@ class NFVOPlugin(AllocateNSSIabc):
         token = self.get_token()
         headers = {'X-Auth-Token': token}
         get_vnfd_list_response = requests.get(get_vnfd_list_url, headers=headers)
-        print("Get Tacker vnfd list status: " + str(get_vnfd_list_response.status_code))
+        #print("Get Tacker vnfd list status: " + str(get_vnfd_list_response.status_code))
         get_vnfd_list_result = get_vnfd_list_response.json()
         #text = get_nsd_list_response.text
         #print(get_nsd_list_result)
@@ -195,7 +195,7 @@ class NFVOPlugin(AllocateNSSIabc):
                 vnfd_id = vnfd['id']
                 #print vnfd_id
             pass
-        print('vnfd id: {}'.format(vnfd_id))
+        #print('vnfd id: {}'.format(vnfd_id))
         return vnfd_id
 
     def upload_ns_descriptor(self, ns_descriptor_path):
@@ -237,7 +237,7 @@ class NFVOPlugin(AllocateNSSIabc):
         token = self.get_token()
         headers = {'X-Auth-Token': token}
         get_vim_list_response = requests.get(get_vim_list_url, headers=headers)
-        print("Get Tacker vim list status: " + str(get_vim_list_response.status_code))
+        #print("Get Tacker vim list status: " + str(get_vim_list_response.status_code))
         get_vim_list_result = get_vim_list_response.json()
         #text = get_vim_list_response.text
         #print(get_vim_list_result)
@@ -251,7 +251,7 @@ class NFVOPlugin(AllocateNSSIabc):
         for vim in vim_list['vims']:
             if vim['name'] == vim_name:
                 vim_id = vim['id']
-                print (vim_id)
+                #print (vim_id)
             pass
         return vim_id
 
