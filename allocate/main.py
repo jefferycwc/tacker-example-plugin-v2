@@ -311,7 +311,16 @@ class NFVOPlugin(AllocateNSSIabc):
             'vnfInstance': vnf_info,
             'vnffgInfo': vnffg_info,
             'nsState': ns_state,
-            'monitoringParameter': monitoringParameter
+            'monitoringParameter': monitoringParameter,
+            'mongodb':res_show_ns['ns']['vnf_ids']['VNF0']
+            'nrfd':res_show_ns['ns']['vnf_ids']['VNF1']
+            'amfd':res_show_ns['ns']['vnf_ids']['VNF2']
+            'smfd':res_show_ns['ns']['vnf_ids']['VNF3']
+            'udrd':res_show_ns['ns']['vnf_ids']['VNF4']
+            'pcfd':res_show_ns['ns']['vnf_ids']['VNF5']
+            'udmd':res_show_ns['ns']['vnf_ids']['VNF6']
+            'nssfd':res_show_ns['ns']['vnf_ids']['VNF7']
+            'ausd':res_show_ns['ns']['vnf_ids']['VNF8']
         }
 
     def list_vnf(self):
