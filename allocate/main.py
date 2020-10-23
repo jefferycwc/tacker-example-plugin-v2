@@ -118,7 +118,7 @@ class NFVOPlugin(AllocateNSSIabc):
         headers = {'X-Auth-Token': token}
         response = requests.post(upload_vnfd_url, data=json.dumps(vnfd_body), headers=headers)
         print('Upload VNFD status: ' + str(response.status_code))
-        self.create_vnf(vnfd_name)
+        #self.create_vnf(vnfd_name)
 
     def create_vnf(self,vnf_name):
         post_create_vnf_url = self.TACKER_URL + "/vnfs"
