@@ -316,7 +316,7 @@ class NFVOPlugin(AllocateNSSIabc):
         'ausd':res_show_ns['ns']['vnf_ids']['VNF8']'''
         str_ = '123'
         self.nsinfo = {
-            'id': self.random_uuid,
+            'id': ns_instance_id,
             'nsInstanceDescription': description,
             'nsdInfoId': nsd_info_id,
             'vnfInstance': vnf_info,
