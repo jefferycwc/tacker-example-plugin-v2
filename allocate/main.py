@@ -312,7 +312,7 @@ class NFVOPlugin(AllocateNSSIabc):
             'vnfInstance': vnf_info,
             'vnffgInfo': vnffg_info,
             'nsState': ns_state,
-            'monitoringParameter': monitoringParameter,
+            'monitoringParameter': monitoringParameter
             ''''mongodb':res_show_ns['ns']['vnf_ids']['VNF0'],
             'nrfd':res_show_ns['ns']['vnf_ids']['VNF1'],
             'amfd':res_show_ns['ns']['vnf_ids']['VNF2'],
