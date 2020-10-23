@@ -7,7 +7,7 @@ import yaml
 import glob
 import time
 import pprint
-
+import uuid
 
 class NFVOPlugin(AllocateNSSIabc):
     def __init__(self, nm_host, nfvo_host, subscription_host, parameter):
@@ -303,8 +303,9 @@ class NFVOPlugin(AllocateNSSIabc):
         vnffg_info = res_show_ns['ns']['vnffg_ids']
         ns_state = res_show_ns['ns']['status']
         monitoringParameter = res_show_ns['ns']['mgmt_urls']
+        self.random_uuid=str(uuid.uuid4())
         self.nsinfo = {
-            'id': ns_instance_id,
+            'id': self.random_uuid,
             'nsInstanceDescription': description,
             'nsdInfoId': nsd_info_id,
             'vnfInstance': vnf_info,
